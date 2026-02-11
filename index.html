@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Hug Day 💞</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 30px;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  animation: fadeIn 1.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.names {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.names span {
+  font-weight: 600;
+  color: #ffeb3b;
+}
+
+.hug-area {
+  position: relative;
+  height: 120px;
+  margin: 20px 0;
+}
+
+.person {
+  font-size: 70px;
+  position: absolute;
+  top: 0;
+}
+
+.left {
+  left: 0;
+  animation: moveLeft 2.5s infinite;
+}
+
+.right {
+  right: 0;
+  animation: moveRight 2.5s infinite;
+}
+
+@keyframes moveLeft {
+  0% { left: 0; }
+  50% { left: 90px; }
+  100% { left: 0; }
+}
+
+@keyframes moveRight {
+  0% { right: 0; }
+  50% { right: 90px; }
+  100% { right: 0; }
+}
+
+.heart {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  opacity: 0;
+  animation: heartPop 2.5s infinite;
+}
+
+@keyframes heartPop {
+  0% { opacity: 0; transform: translate(-50%, 0) scale(0.5); }
+  50% { opacity: 1; transform: translate(-50%, -10px) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%, 0) scale(0.5); }
+}
+
+.message {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+button {
+  background: #ff2e63;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #e91e63;
+  transform: scale(1.05);
+}
+
+.from {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Happy Hug Day 🤗</h1>
+
+  <div class="names">
+    To: <span>Khushi</span> 💖 <br>
+    From: <span>Piyush</span>
+  </div>
+
+  <div class="hug-area">
+    <div class="person left">🧑</div>
+    <div class="person right">👩</div>
+    <div class="heart">❤️</div>
+  </div>
+
+  <div class="message" id="msg">
+    This hug is my way of telling you —  
+    you’re safe, loved, and always in my arms 💞
+  </div>
+
+  <button onclick="nextMessage()">Another Hug 🤍</button>
+
+  <div class="from">Forever yours 💕</div>
+</div>
+
+<script>
+const messages = [
+  "Every hug of mine is filled with comfort and love 🤗",
+  "No distance is stronger than my arms around you ❤️",
+  "Whenever you miss me, feel this hug 🫂",
+  "You are my favorite place to belong 💖"
+];
+
+let i = 0;
+function nextMessage() {
+  i = (i + 1) % messages.length;
+  document.getElementById("msg").innerText = messages[i];
+}
+</script>
+
+</body>
+</html>
